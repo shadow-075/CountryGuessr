@@ -21,7 +21,7 @@ export default function GameScreen({
       <div className="media-container">
         {gameMode === 'FLAG' ? (
           <div className="flag-wrapper">
-            <img src={`https://country-guessr.vercel.app/api/countries/flag/${currentCountry._id}`} alt="Guess the flag" className="flag-image" />
+            <img src={`https://country-guessr-12.vercel.app/api/countries/flag/${currentCountry._id}`} alt="Guess the flag" className="flag-image" />
           </div>
         ) : (
           <div className="capital-box">
