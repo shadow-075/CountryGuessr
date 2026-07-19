@@ -297,3 +297,15 @@ button:active:not(:disabled) { transform: scale(0.97); }
   color: #f8fafc;
 }
 .stat-card p.highlight { color: #38bdf8; font-size: 2rem;}
+
+.nav-logout-btn {
+  background: transparent;
+  border: 1px solid #64748b;
+  color: #94a3b8;
+  padding: 6px 16px;
+  border-radius: 6px;
+}
+.nav-logout-btn:hover { 
+  background: rgba(100, 116, 139, 0.1); 
+  color: #f8fafc;
+}

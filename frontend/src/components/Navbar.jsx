@@ -4,6 +4,7 @@ export default function Navbar({ currentUser, gameState, setGameState, fetchLead
       <div className="nav-brand" onClick={() => currentUser && setGameState('SETUP')} style={{cursor: 'pointer'}}>
         🌍 CountryGuessr
       </div>
+      
       {currentUser && (
         <div className="nav-links">
           <a href="#" className={`nav-link ${gameState === 'SETUP' || gameState === 'PLAYING' ? 'active' : ''}`} 
@@ -14,9 +15,17 @@ export default function Navbar({ currentUser, gameState, setGameState, fetchLead
              onClick={(e) => { e.preventDefault(); if(gameState !== 'PLAYING') setGameState('PROFILE'); }}>Profile</a>
         </div>
       )}
+      
       <div className="nav-actions">
-        {gameState === 'PLAYING' && <button onClick={handleQuit} className="nav-quit-btn">Quit Match</button>}
-        {currentUser && gameState !== 'PLAYING' && <button onClick={handleLogout} className="nav-quit-btn">Logout</button>}
+        {/* Shows ONLY when playing a game */}
+        {gameState === 'PLAYING' && (
+          <button onClick={handleQuit} className="nav-quit-btn">Quit Match</button>
+        )}
+        
+        {/* Shows ONLY when NOT playing a game (Setup, Profile, Leaderboard) */}
+        {currentUser && gameState !== 'PLAYING' && (
+          <button onClick={handleLogout} className="nav-logout-btn">Logout</button>
+        )}
       </div>
     </nav>
   );
