@@ -52,7 +52,7 @@ function App() {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/countries');
+        const response = await fetch('https://country-guessr.vercel.app//api/countries');
         const data = await response.json();
         setAllCountries(data);
       } catch (error) {
@@ -76,7 +76,7 @@ function App() {
     e.preventDefault();
     if (!loginInput.trim()) return;
     try {
-      const res = await fetch('http://localhost:5000/api/users/login', {
+      const res = await fetch('https://country-guessr.vercel.app//api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: loginInput.trim() })
@@ -98,7 +98,7 @@ function App() {
 
   const fetchLeaderboard = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/users/leaderboard');
+      const res = await fetch('https://country-guessr.vercel.app//api/users/leaderboard');
       const data = await res.json();
       setLeaderboardData(data);
       setGameState('LEADERBOARD');
@@ -111,7 +111,7 @@ function App() {
     setTimerActive(false);
     try {
       if (currentUser && finalScore > 0) {
-        const res = await fetch('http://localhost:5000/api/users/score', {
+        const res = await fetch('https://country-guessr.vercel.app//api/users/score', {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: currentUser.username, score: finalScore })
